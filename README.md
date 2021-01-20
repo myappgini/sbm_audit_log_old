@@ -43,7 +43,7 @@ or use **git** into your plugin folder:
 
 if you already use git in ypur project add like submodule
 ```cmd
-$ git submodule add https://github.com/myappgini/sbm_mpi.git mpi
+$ git submodule add https://github.com/myappgini/sbm_audi_log.git audit
 ```
 
 ## Use
