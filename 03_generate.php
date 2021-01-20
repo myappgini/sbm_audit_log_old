@@ -80,10 +80,7 @@ $dest = $path . '/hooks/audit/scripts.php';
 $MyPlugin->my_copy_file($source,$dest,true);
 
 $MyPlugin->progress_log->line();
-$code ="<?php include('audit/scripts.php');?>";
-$file_path = $path . '/hooks/__global.php';
-$res = $MyPlugin->add_to_file($file_path, false, $code);
-
+$MyPlugin->progress_log->add('Adding New table on current data base','text-info');
 $sql = file_get_contents(dirname(__FILE__) .'/app-resources/audit_tableSQL.sql');
 if ($sql) {
     $eo = ['silentErrors' => true];
@@ -95,6 +92,14 @@ if ($sql) {
         $MyPlugin->progress_log->add('Audit table created');
     }
 }
+
+$MyPlugin->progress_log->line();
+$MyPlugin->progress_log->add('Adding code to hooks','text-info');
+$MyPlugin->progress_log->add('File: __global.php');
+$code ="<?php include('audit/scripts.php');?>";
+$file_path = $path . '/hooks/__global.php';
+$res = $MyPlugin->add_to_file($file_path, false, $code);
+inspect_result($res, $file_path, $MyPlugin);
 
 $tables = getTableList(true);
 foreach ($tables as $tn=>$table) {
