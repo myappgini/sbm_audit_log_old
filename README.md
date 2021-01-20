@@ -1,6 +1,6 @@
 # Audit Log for AppGini
 
-## Audit log admin in AppGioni project
+## Audit log admin in AppGini project
 
 Versions 1.71
 Adjustments by Olaf Nöhring, 2021-01 (https://datenbank-projekt.de):
